@@ -35,20 +35,38 @@ function getKpNow(){
       console.log(now[1]);
   });
 }
-// showNow.addEventListener("click",getKpNow);
+showNow.addEventListener("click",getKpNow);
 
 n2.addEventListener("input",()=>{
   console.log("nitrogen val is: "+n2.value);
+  n2Val.innerHTML=n2.value;
+  generateAurora();
 
 });
 ox.addEventListener("input",()=>{
   console.log("oxygen val is: "+ox.value);
   oxVal.innerHTML=ox.value;
+  generateAurora();
 });
 wind.addEventListener("input",()=>{
   console.log("wind val is: "+wind.value);
+  windVal.innerHTML=wind.value;
+  generateAurora();
 });
 date.addEventListener("input",()=>{
   console.log("user choose date: "+date.value);
 });
+const inputs = document.querySelector("form");
+const glow = document.querySelector("main");
+glow.style.background ="radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1) 30%,rgba(0, 212, 255, 0) 100%)";
+// aurora calculation
+function generateAurora(){
+  console.log("change");
+  let green = wind.value;
+  glow.style.background =
+    "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+    green +
+    "%,rgba(0, 212, 255, 0) 100%)";
+};
+
 

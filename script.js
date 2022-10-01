@@ -1,5 +1,5 @@
 
-fetch('https://services.swpc.noaa.gov/products/summary/10cm-flux.json')
+fetch('https://services.swpc.noaa.gov/products/summary/solar-wind-speed.json')
   .then((response) => response.json())
   .then((data) => {
     console.log(data.Flux)

@@ -5,19 +5,24 @@
     max-width: 100%;
     /* border: solid 1px red; */
 }
-body {
+body, main {
     margin: 0 auto;
     font-family: 'Source Sans 3','Source Sans Pro', sans-serif;
     font-weight: 400;
     line-height: 1.8;
+    color: white;
+    /* background-image: url(images/mountain.svg); */
+    /* background-color: rgb(63, 60, 91); */
+    background-image: linear-gradient(to top, #434343 0%, black 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#mountain {
     background-image: url(images/mountain.svg);
-    background-color: rgb(8, 7, 17);
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-}
-main {
-    min-height: 100vh;
 }
 #infoBox {
     max-width: 350px;
@@ -25,6 +30,7 @@ main {
     position: absolute;
     right: 0;
     z-index: 2;
+    top:0;
     
 }
 h1 {
@@ -41,9 +47,12 @@ h1 {
 #mapBox {
     position: absolute;
     z-index: 1;
-    min-width: 70vw;
-    left: 50%;
-    right: 50%;
-    transform: translate(-55%, -15%);
+    min-width: 80vw;
+    left: 45%;
+    right: 55%;
+    transform: translate(-55%, -40%);
 }
-
+path {
+    fill: none;
+    stroke-width: 3px;
+}

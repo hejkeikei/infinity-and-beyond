@@ -56,6 +56,7 @@ wind.addEventListener("input",()=>{
 date.addEventListener("input",()=>{
   console.log("user choose date: "+date.value);
 });
+
 const inputs = document.querySelector("form");
 const glow = document.querySelector("main");
 glow.style.background ="radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1) 30%,rgba(0, 212, 255, 0) 100%)";
@@ -63,10 +64,25 @@ glow.style.background ="radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,r
 function generateAurora(){
   console.log("change");
   let green = wind.value;
-  glow.style.background =
+  let red = ox.value*5;
+  let pink = n2.value;
+  if(red!=0){
+    glow.style.background =
     "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
     green +
-    "%,rgba(0, 212, 255, 0) 100%)";
+    "%,rgba(232, 52, 49,0.5) "+red+"%,rgba(0, 212, 255, 0) 100%)";
+  }else if(pink!=0){
+    let rgbval = (161, 72, 66);
+    glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+      green +
+      "%,rgba(0, 212, 255, 0) 100%)";
+  }else{
+    glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+      green +
+      "%,rgba(0, 212, 255, 0) 100%)";
+  }
 };
 
 

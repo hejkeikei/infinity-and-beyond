@@ -32,5 +32,9 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: end;
+<<<<<<< Updated upstream
     margin-right: 6rem;
+=======
+    margin-right: 7rem;
+>>>>>>> Stashed changes
 }

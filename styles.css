@@ -28,13 +28,12 @@ h1 {
     font-weight: 400;
     font-size: 1.2rem;
 }
+#mapbox {
+    overflow: scroll;
+}
 #rangeBox {
     display: flex;
     flex-direction: column;
     align-items: end;
-<<<<<<< Updated upstream
     margin-right: 6rem;
-=======
-    margin-right: 7rem;
->>>>>>> Stashed changes
 }

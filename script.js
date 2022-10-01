@@ -1,9 +1,9 @@
 
-fetch('https://services.swpc.noaa.gov/products/summary/solar-wind-speed.json')
+fetch('https://services.swpc.noaa.gov/products/noaa-estimated-planetary-k-index-1-minute.json')
   .then((response) => response.json())
   .then((data) => {
-    console.log(data.Flux)
-    let speed  = data.Flux;
-    msg.innerHTML="The speed of solar wind is "+speed;
+    let now = data[data.length-1]
+    console.log(now[1]);
+    
 });
 

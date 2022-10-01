@@ -1,74 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Infinity and Beyond</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"  href="styles.css">
-    </head>
-    <body>
-	<main>
-
-    <div id="infoBox">
+  <head>
+    <meta charset="utf-8" />
+    <title>Infinity and Beyond</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <div id="infoBox">
         <header>
-            <h1>Enjoy the aurora from the solar wind anytime and anywhere!</h1>
+          <h1>Enjoy the aurora from the solar wind anytime and anywhere!</h1>
         </header>
-
 
         <!-- Location -->
         <form action="#" method="GET">
-            <fieldset>
-              <legend>Map</legend>
-              <div id="mapbox">
-                <div w3-include-html="map.html"></div>
-              </div>
-            </fieldset>
-          </form>
+          <fieldset>
+            <legend>Map</legend>
+            <div id="mapbox">
+              <div w3-include-html="map.html"></div>
+            </div>
+          </fieldset>
+        </form>
 
         <!-- shows real time -->
-        <div><button type="button">Show Me Now</button> or chosose a day below.</div>
-
-
-        <form action="#" method="GET">
-            
-            <fieldset>
-               <legend>Date</legend>
-          <label for="date">Choose a day</label>
-          <input type="date" id="date" name="date" />
-            </fieldset>
-         
-        <div id="rangeBox">
-            <div>
-                <label for="wind">Solor wind</label>
-          <p class="inlineBlock"><span id="windVal"></span></p>
-          <input
-            type="range"
-            id="wind"
-            name="wind"
-            min="0"
-            max="100"
-            value="0"
-          />
-            </div>
-
-            <div>
-                <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
-          <p class="inlineBlock"><span id="n2Val"></span>%</p>
-        <input type="range" id="n2" name="n2" min="0" max="100" value="0" />
-            </div>
-
-            <div>
-               <label for="ox">O</label>
-          <p class="inlineBlock"><span id="oxVal"></span>%</p>
-          <input type="range" id="ox" name="ox" min="0" max="100" value="0" />
-            </div>
+        <div>
+          <button type="button">Show Me Now</button> or chosose a day below.
         </div>
 
-        </form>
-    </div>
-		
-        
-	</main>
-    </body>
-</html>
+        <form action="#" method="GET">
+          <fieldset>
+            <legend>Date</legend>
+            <label for="date">Choose a day</label>
+            <input type="date" id="date" name="date" />
+          </fieldset>
 
+          <div id="rangeBox">
+            <div>
+              <label for="wind">Solor wind</label>
+              <p class="inlineBlock"><span id="windVal"></span></p>
+              <input
+                type="range"
+                id="wind"
+                name="wind"
+                min="0"
+                max="100"
+                value="0"
+              />
+            </div>
+
+            <div>
+              <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
+              <p class="inlineBlock"><span id="n2Val"></span>%</p>
+              <input
+                type="range"
+                id="n2"
+                name="n2"
+                min="0"
+                max="78"
+                value="0"
+              />
+            </div>
+
+            <div>
+              <label for="ox">O</label>
+              <p class="inlineBlock"><span id="oxVal"></span>%</p>
+              <input
+                type="range"
+                id="ox"
+                name="ox"
+                min="0"
+                max="21"
+                value="0"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

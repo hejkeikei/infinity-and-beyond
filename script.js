@@ -35,7 +35,7 @@ function getKpNow(){
       console.log(now[1]);
   });
 }
-showNow.addEventListener("click",getKpNow);
+// showNow.addEventListener("click",getKpNow);
 
 n2.addEventListener("input",()=>{
   console.log("nitrogen val is: "+n2.value);
@@ -43,6 +43,7 @@ n2.addEventListener("input",()=>{
 });
 ox.addEventListener("input",()=>{
   console.log("oxygen val is: "+ox.value);
+  oxVal.innerHTML=ox.value;
 });
 wind.addEventListener("input",()=>{
   console.log("wind val is: "+wind.value);

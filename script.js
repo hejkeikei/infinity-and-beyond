@@ -38,15 +38,16 @@ function getKpNow(){
 showNow.addEventListener("click",getKpNow);
 
 n2.addEventListener("input",()=>{
+  console.log("nitrogen val is: "+n2.value);
 
 });
 ox.addEventListener("input",()=>{
-
+  console.log("oxygen val is: "+ox.value);
 });
 wind.addEventListener("input",()=>{
-
+  console.log("wind val is: "+wind.value);
 });
 date.addEventListener("input",()=>{
-
+  console.log("user choose date: "+date.value);
 });
 

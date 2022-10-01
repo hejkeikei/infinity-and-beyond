@@ -33,6 +33,11 @@ function getKpNow(){
     .then((data) => {
       let now = data[data.length-1]
       console.log(now[1]);
+      let nowVal = now[1]*10;
+      glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, "+now[1]/10+") 0%,rgba(128, 250, 57, "+now[1]/10+")" +
+      nowVal +
+      "%,rgba(0, 212, 255, 0) 100%)";
   });
 }
 showNow.addEventListener("click",getKpNow);

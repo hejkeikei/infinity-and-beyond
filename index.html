@@ -122,15 +122,16 @@
         <form action="#" method="GET">
             
             <fieldset>
-                <legend>Date</legend>
-                <label for="date">Choose a day</label>
-                <input type="date" id="date" name="date">
+               <legend>Date</legend>
+          <label for="date">Choose a day</label>
+          <input type="date" id="date" name="date" />
             </fieldset>
          
         <div id="rangeBox">
 
             <div class="row">
                 <label for="wind">Solor wind</label>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 <input type="range" id="wind" name="wind"
@@ -151,10 +152,22 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+          <p class="inlineBlock"><span id="windVal"></span></p>
+          <input
+            type="range"
+            id="wind"
+            name="wind"
+            min="0"
+            max="100"
+            value="0"
+          />
+>>>>>>> 521d11e185df9429bb733891162b4b4c59a7755b
             </div>
 
             <div class="row">
                 <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 <input type="range" id="n2" name="n2"
@@ -184,6 +197,16 @@
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+          <p class="inlineBlock"><span id="n2Val"></span>%</p>
+        <input type="range" id="n2" name="n2" min="0" max="100" value="0" />
+            </div>
+
+            <div>
+               <label for="ox">O</label>
+          <p class="inlineBlock"><span id="oxVal"></span>%</p>
+          <input type="range" id="ox" name="ox" min="0" max="100" value="0" />
+>>>>>>> 521d11e185df9429bb733891162b4b4c59a7755b
             </div>
         </div>
 
@@ -193,3 +216,4 @@
     <script src="script.js"></script>
     </body>
 </html>
+

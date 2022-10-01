@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Source+Sans+3:wght@400;700;900&family=Source+Sans+Pro:wght@400;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+    border: solid 1px red;
+}
+body {
+    margin: 0 auto;
+    font-family: 'Source Sans 3','Source Sans Pro', sans-serif;
+    font-weight: 400;
+    line-height: 2;
+    background-image: url(images/mountain.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+#infoBox {
+    max-width: 350px;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    
+}
+h1 {
+    font-family: 'Silkscreen', cursive;
+    line-height: 2;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+#rangeBox {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 7rem;
+}

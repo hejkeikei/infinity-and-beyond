@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infinity and Beyond</title>
-    <link rel="stylesheet"  href="styles.css">
-  </head>
-  <body>
-    <main>
+    <head>
+        <meta charset="utf-8">
+        <title>Infinity and Beyond</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"  href="styles.css">
+    </head>
+    <body>
+	<main>
 
-      <header>
-          <h1>Enjoy the aurora from the solar wind anytime and anywhere!</h1>
-      </header>
+    <div id="infoBox">
+        <header>
+            <h1>Enjoy the aurora from the solar wind anytime and anywhere!</h1>
+        </header>
 
 
-      <!-- Location -->
-      <form action="#" method="GET">
-          <fieldset>
+        <!-- Location -->
+        <form action="#" method="GET">
+            <fieldset>
               <legend>Map</legend>
-          </fieldset>
-      </form>
+              <div id="mapbox">
+                <div w3-include-html="map.html"></div>
+              </div>
+            </fieldset>
+          </form>
 
-<br>
-<br>
-      <!-- shows real time -->
-      <div><button type="button">Show Me Now</button> or chosose a day below.</div>
+        <!-- shows real time -->
+        <div><button type="button">Show Me Now</button> or chosose a day below.</div>
 
-<br>
-<br>
 
-      <form action="#" method="GET">
-          
-          <fieldset>
-              <legend>Date</legend>
-              <label for="date">Choose a day</label>
-              <input type="date" id="date" name="date">
-          </fieldset>
+        <form action="#" method="GET">
+            
+            <fieldset>
+                <legend>Date</legend>
+                <label for="date">Choose a day</label>
+                <input type="date" id="date" name="date">
+            </fieldset>
+         
+        <div id="rangeBox">
+            <div>
+                <label for="wind">Solor wind</label>
+                <input type="range" id="wind" name="wind"
+                    min="0" max="100" value="0">
+            </div>
 
-<br>
-<br>            
-              <label for="wind">Solor wind</label>
-              <input type="range" id="wind" name="wind"
-                  min="0" max="100" value="0">
+            <div>
+                <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
+                <input type="range" id="n2" name="n2"
+                    min="0" max="78" value="0">
+            </div>
 
-<br>
-<br>
+            <div>
+                <label for="ox">O</label>
+                <input type="range" id="ox" name="ox"
+                    min="0" max="21" value="0">
+            </div>
+        </div>
 
-              <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
-              <input type="range" id="n2" name="n2"
-                  min="0" max="100" value="0">
-<br>
-<br>
-              <label for="ox">O</label>
-              <input type="range" id="ox" name="ox"
-                  min="0" max="100" value="0">
-
-      </form>
-  
-      
-
-</main>
-    <script src="script.js"></script>
-  </body>
+        </form>
+    </div>
+		
+        
+	</main>
+    </body>
 </html>

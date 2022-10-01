@@ -33,21 +33,61 @@ function getKpNow(){
     .then((data) => {
       let now = data[data.length-1]
       console.log(now[1]);
+      let nowVal = now[1]*10;
+      glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, "+now[1]/10+") 0%,rgba(128, 250, 57, "+now[1]/10+")" +
+      nowVal +
+      "%,rgba(0, 212, 255, 0) 100%)";
   });
 }
 showNow.addEventListener("click",getKpNow);
 
 n2.addEventListener("input",()=>{
   console.log("nitrogen val is: "+n2.value);
+  n2Val.innerHTML=n2.value;
+  generateAurora();
 
 });
 ox.addEventListener("input",()=>{
   console.log("oxygen val is: "+ox.value);
+  oxVal.innerHTML=ox.value;
+  generateAurora();
 });
 wind.addEventListener("input",()=>{
   console.log("wind val is: "+wind.value);
+  windVal.innerHTML=wind.value;
+  generateAurora();
 });
 date.addEventListener("input",()=>{
   console.log("user choose date: "+date.value);
 });
+
+const inputs = document.querySelector("form");
+const glow = document.querySelector("main");
+glow.style.background ="radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1) 30%,rgba(0, 212, 255, 0) 100%)";
+// aurora calculation
+function generateAurora(){
+  console.log("change");
+  let green = wind.value;
+  let red = ox.value*5;
+  let pink = n2.value;
+  if(red!=0){
+    glow.style.background =
+    "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+    green +
+    "%,rgba(232, 52, 49,0.5) "+red+"%,rgba(0, 212, 255, 0) 100%)";
+  }else if(pink!=0){
+    let rgbval = (161, 72, 66);
+    glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+      green +
+      "%,rgba(0, 212, 255, 0) 100%)";
+  }else{
+    glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+      green +
+      "%,rgba(0, 212, 255, 0) 100%)";
+  }
+};
+
 

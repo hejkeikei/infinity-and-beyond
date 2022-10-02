@@ -29,7 +29,7 @@ body, main {
     padding: 1rem;
     position: absolute;
     right: 0;
-    z-index: 2;
+    z-index: 3;
     top:0;
     
 }
@@ -46,11 +46,15 @@ h1 {
 }
 #mapBox {
     position: absolute;
-    z-index: 1;
-    min-width: 80vw;
+    z-index: 2;
+    /* min-width: 80vw;
     left: 45%;
     right: 55%;
-    transform: translate(-55%, -40%);
+    transform: translate(-55%, -40%); */
+    min-width: 45vw;
+    left: -33px;
+    right: 1000px;
+    transform: translate(-2%, -40%);
 }
 path {
     fill: none;

@@ -372,7 +372,7 @@ var NorthernLights = function (parentElement, width, height, curves) {
   this.height = height || window.innerHeight;
   this.canvas = document.createElement('canvas');
   this.canvas.width = this.width;
-  this.canvas.height = this.height;
+  this.canvas.height = 750;
   this.ctx = this.canvas.getContext('2d');
   this.ctx.globalCompositeOperation = "color-dodge";
 
@@ -450,7 +450,7 @@ var curves = [
 ]
 var nl1 = new NorthernLights (document.body, null, null, curves);
 
-document.body.addEventListener('mousemove', function (e) {
-  mouseXPercentage = e.clientX / window.innerWidth;
-  mouseYPercentage = e.clientY / window.innerHeight;
-})
+// document.body.addEventListener('mousemove', function (e) {
+//   mouseXPercentage = e.clientX / window.innerWidth;
+//   mouseYPercentage = e.clientY / window.innerHeight;
+// })

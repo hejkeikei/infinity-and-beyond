@@ -105,6 +105,12 @@ button:hover {
         max-width: 650px;
         margin-left: 1.5rem;
     }
+    #infoBox .inlineBlock {
+        margin: 0;
+    }
+    #rangeBox {
+        margin-top: 1.5rem;
+    }
     h1 {
         font-size: 2.4rem;
     }
@@ -120,16 +126,10 @@ button:hover {
         font-size: 1.3rem;
     }
 }
-@media all and (max-width:1500px){
+@media all and (max-width:1800px){
     #infoBox {
         max-width: 350px;
         font-size: 1rem;
-    }
-    #infoBox .inlineBlock {
-        margin: 0;
-    }
-    #rangeBox {
-        margin-top: 1.5rem;
     }
     h1 {
         font-size: 1.2rem;

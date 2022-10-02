@@ -1,6 +1,6 @@
 <?php
     $server = "localhost";
-    $user = "asakakei";
+    $user = "asakakei@gmail.com";
     $pwd = "!Dinmamma0822";
     $database = "vslbau15_spaceApp";
     $connection = mysqli_connect($server, $user, $pwd, $database);

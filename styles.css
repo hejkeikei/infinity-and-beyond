@@ -24,6 +24,7 @@ body, main {
     background-size: cover;
     height: 100vh;
     width: auto;
+    background-position: bottom;
 }
 #infoBox {
     max-width: 350px;

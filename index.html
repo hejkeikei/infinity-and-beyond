@@ -1,83 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Infinity and Beyond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="aurora.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <main>
-    
-    <div id="mountain">
-      <!-- Location -->
 
-        <div id="mapBox" w3-include-html="map.html">
-            <!-- <div w3-include-html="map.html"></div> -->
-        </div>
+        <div id="mountain">
+            <!-- Location -->
 
-      
-      <div id="infoBox">
-        <header>
-          <h1>Enjoy the aurora from the solar wind anytime and anywhere!</h1>
-        </header>
-
-        <!-- shows real time -->
-        <div>
-          <button type="button" id="showNow">Show Me Now</button>
-        </div>
-
-        <p> OR </p>
-        <form action="#" method="GET">
-            
-            <input type="date" id="date" name="date"aria-label="date"/>
-            <!-- <label for="date"></label> -->
-
-          <div id="rangeBox">
-            <div>
-              <label for="wind">Solor wind</label>
-              <p class="inlineBlock">
-              <input
-                type="range"
-                id="wind"
-                name="wind"
-                min="0"
-                max="100"
-                value="0"
-              /><span id="windVal"></span>%</p>
+            <div id="mapBox" w3-include-html="map.html">
+                <!-- <div w3-include-html="map.html"></div> -->
             </div>
 
-            <div>
-              <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
-              <p class="inlineBlock">
-              <input
-                type="range"
-                id="n2"
-                name="n2"
-                min="0"
-                max="78"
-                value="0"
-              /><span id="n2Val"></span>%</p>
-            </div>
 
-            <div>
-              <label for="ox">O</label>
-              <p class="inlineBlock">
-              <input
-                type="range"
-                id="ox"
-                name="ox"
-                min="0"
-                max="21"
-                value="0"
-              /><span id="oxVal"></span>%</p>
+            <div id="infoBox">
+                <header>
+                    <h1>Enjoy the aurora from the solar wind anytime and anywhere!</h1>
+                </header>
+
+                <!-- shows real time -->
+                <div>
+                    <button type="button" id="showNow">Show Me Now</button>
+                </div>
+
+                <p> OR </p>
+                <form action="#" method="GET">
+
+                    <button id="btnnow1" class="datechoice"></button>
+                    <button id="btnnow2" class="datechoice"></button>
+                    <button id="btnnow3" class="datechoice"></button>
+                    <button id="btnnow4" class="datechoice"></button>
+                    <button id="btnnow5" class="datechoice"></button>
+                    <button id="btnnow6" class="datechoice"></button>
+                    <button id="btnnow7" class="datechoice"></button>
+
+                    <!-- <label for="date"></label> -->
+
+                    <div id="rangeBox">
+                        <div>
+                            <label for="wind">Solor wind</label>
+                            <p class="inlineBlock">
+                                <input type="range" id="wind" name="wind" min="0" max="100" value="0" /><span id="windVal"></span>%</p>
+                        </div>
+
+                        <div>
+                            <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
+                            <p class="inlineBlock">
+                                <input type="range" id="n2" name="n2" min="0" max="78" value="0" /><span id="n2Val"></span>%</p>
+                        </div>
+
+                        <div>
+                            <label for="ox">O</label>
+                            <p class="inlineBlock">
+                                <input type="range" id="ox" name="ox" min="0" max="21" value="0" /><span id="oxVal"></span>%</p>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
-        </form>
-    </div>
     </main>
     <script src="script.js"></script>
     <script src="aurora.js"></script>
-  </body>
+</body>
+
 </html>

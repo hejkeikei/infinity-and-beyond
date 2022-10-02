@@ -448,7 +448,7 @@ function generateAurora() {
   var valSet = [];
   if (red > 0 && pink == 0) {
     valSet = [green, red, 0, "255, 102, 148"];
-    console.log(valSet[3]);
+    // console.log(valSet[3]);
     return valSet;
   } else if (pink > 0 && red == 0) {
     valSet = [green, 0, pink, "174, 51, 245"];
@@ -476,7 +476,7 @@ n2.addEventListener("input", () => {
   // console.log("nitrogen val is: " + n2.value);
   n2Val.innerHTML = n2.value;
   let arr = generateAurora();
-  console.log(arr);
+  // console.log(arr);
   let colour = "rgba(" + arr[3] + "," + arr[2] / 20 + ")";
   grad2.addColorStop(.35, colour);
 });
@@ -484,7 +484,7 @@ ox.addEventListener("input", () => {
   // console.log("oxygen val is: " + ox.value);
   oxVal.innerHTML = ox.value;
   let arr = generateAurora();
-  console.log("rgba(" + arr[3] + "," + arr[1] / 20 + ")");
+  // console.log("rgba(" + arr[3] + "," + arr[1] / 20 + ")");
   let colour = "rgba(" + arr[3] + "," + arr[1] / 20 + ")";
   grad2.addColorStop(.7, colour);
   grad.addColorStop(.4, colour);
@@ -494,11 +494,11 @@ wind.addEventListener("input", () => {
   // console.log("wind val is: " + wind.value);
   windVal.innerHTML = wind.value;
   let arr = generateAurora();
-  let colour = "rgba(" + arr[3] + "," + arr[0] / 600 + ")";
-  console.log(colour);
+  let colour = "rgba(" + arr[3] + "," + arr[0] / 400 + ")";
+  // console.log(colour);
   grad.addColorStop(.4, colour);
   // grad2.addColorStop(.7, colour);
-  canv.style.opacity = arr[0] / 600;
+  canv.style.opacity = arr[0] / 400;
 
 });
 

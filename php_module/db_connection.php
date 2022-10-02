@@ -1,8 +1,8 @@
 <?php
     $server = "localhost";
-    $user = "spark";
-    $pwd = "tWGXdWRxjKw87D?{Yj";
-    $database = "spark_mmda225_ecommerce";
+    $user = "asakakei";
+    $pwd = "!Dinmamma0822";
+    $database = "vslbau15_spaceApp";
     $connection = mysqli_connect($server, $user, $pwd, $database);
 
     if(!$connection){

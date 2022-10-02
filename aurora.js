@@ -473,15 +473,17 @@ oxVal.innerHTML = ox.value;
 windVal.innerHTML = wind.value;
 // print pecentage of parameter
 n2.addEventListener("input", () => {
+  canv.style.opacity = 1;
   // console.log("nitrogen val is: " + n2.value);
   n2Val.innerHTML = n2.value;
   let arr = generateAurora();
   // console.log(arr);
-  let colour = "rgb(" + arr[3] + ")";
+  let colour = "rgba(" + arr[3] + "," + arr[2] / 50 + ")";
   grad2.addColorStop(.35, colour);
 });
 ox.addEventListener("input", () => {
   // console.log("oxygen val is: " + ox.value);
+  canv.style.opacity = 1;
   oxVal.innerHTML = ox.value;
   let arr = generateAurora();
   console.log("rgba(" + arr[3] + "," + arr[1] / 20 + ")");
@@ -491,10 +493,13 @@ ox.addEventListener("input", () => {
 });
 wind.addEventListener("input", () => {
   // console.log("wind val is: " + wind.value);
+  canv.style.opacity = 1;
   windVal.innerHTML = wind.value;
   let arr = generateAurora();
-  let colour = "rgba(" + arr[3] + "," + arr[1] / 20 + ")";
+  // console.log(arr);
+  let colour = "rgba(" + arr[3] + "," + arr[0] / 20 + ")";
   grad.addColorStop(.4, colour);
+  grad2.addColorStop(.7, colour);
 });
 date.addEventListener("input", () => {
   console.log("user choose date: " + date.value);

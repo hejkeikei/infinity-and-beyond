@@ -82,12 +82,32 @@ function generateAurora(){
       "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
       green +
       "%,rgba(0, 212, 255, 0) 100%)";
+  }else if(green<2){
+    glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, 0.1) 0%,rgba(128, 250, 57, 0.1)" +
+      green +
+      "%,rgba(0, 212, 255, 0) 100%)";
   }else{
     glow.style.background =
-      "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+      "radial-gradient(closest-side,rgba(221, 250, 114, 0.8) 0%,rgba(128, 250, 57, 0.8)" +
       green +
       "%,rgba(0, 212, 255, 0) 100%)";
   }
 };
 
+// choose location
+function pathGen(){
+  const worldMap = document.querySelectorAll("path");
+  var place= document.createElement("p");
+  // console.log(worldMap);
+  worldMap.forEach((e)=>{
+    let name = e.getAttribute("name");
+    console.log(name);
+    e.addEventListener("click",()=>{
+      console.log("click");
+    })
+  })
+}
+
+setTimeout(pathGen, 5000);
 

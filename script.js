@@ -1,29 +1,29 @@
 function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-          if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-          /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
+    var z, i, elmnt, file, xhttp;
+    /* Loop through a collection of all HTML elements: */
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                    /* Remove the attribute, and call this function once more: */
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                }
+            }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
         }
-      }
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /* Exit the function: */
-      return;
     }
-  }
 }
 includeHTML();
 // Get the real time kp value
@@ -45,7 +45,38 @@ showNow.addEventListener("click", getKpNow);
 const inputs = document.querySelector("form");
 const glow = document.querySelector("main");
 
-glow.style.background = "radial-gradient(closest-side,rgba(221, 250, 114, 0.1) 0%,rgba(128, 250, 57, 0.1) 30%,rgba(0, 212, 255, 0) 100%)";
+//glow.style.background = "radial-gradient(closest-side,rgba(221, 250, 114, 0.1) 0%,rgba(128, 250, 57, 0.1) 30%,rgba(0, 212, 255, 0) 100%)";
+
+
+
+setTimeout(pathGen, 5000);
+const calendarBtn = document.querySelectorAll('.datechoice'); // creates a <h1> element
+
+var today = new Date();
+const yyyy = today.getFullYear();
+var ctoday = new Date();
+let cmm = ctoday.setMonth(ctoday.getMonth());
+ctoday.setDate(0);
+let cdd = ctoday.getDate(0);
+today.toDateString();
+for (let i = 0; i < 7; i++) {
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; // Months start at 0!
+
+    dd = dd - i;
+    if (dd < 0) {
+        dd = cdd + dd;
+        mm = mm - 1;
+    } else if (dd == 0) {
+        dd = cdd;
+        mm = mm - 1;
+    }
+    console.log('dd=' + dd);
+    calendarBtn[i].innerHTML = dd + '/' + mm + '/' + yyyy; // add the text
+}
+
+
+
 
 
 // choose location
@@ -80,4 +111,3 @@ function pathGen() {
 }
 
 setTimeout(pathGen, 3000);
-

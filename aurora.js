@@ -43,31 +43,31 @@ var mouseYPercentage = .5;
  * see http://stackoverflow.com/questions/14174252/how-to-find-out-y-coordinate-of-specific-point-in-bezier-curve-in-canvas
  */
 
-function deCasteljau (p0x, p0y, cp0x, cp0y, cp1x, cp1y, p1x, p1y, t) {
+function deCasteljau(p0x, p0y, cp0x, cp0y, cp1x, cp1y, p1x, p1y, t) {
   // In the first step of the algorithm we draw a line connecting p0 and cp0,
   // another line connecting cp0 and cp1, and another still connecting cp1 and p1.
   // Then for all 3 of these lines we're going to find the point on them that is
   // t % from the start of them.
   var Ax = p0x + (t * (cp0x - p0x)),
-      Ay = p0y + (t * (cp0y - p0y)),
-      Bx = cp0x + (t * (cp1x - cp0x)),
-      By = cp0y + (t * (cp1y - cp0y)),
-      Cx = cp1x + (t * (p1x - cp1x)),
-      Cy = cp1y + (t * (p1y - cp1y));
+    Ay = p0y + (t * (cp0y - p0y)),
+    Bx = cp0x + (t * (cp1x - cp0x)),
+    By = cp0y + (t * (cp1y - cp0y)),
+    Cx = cp1x + (t * (p1x - cp1x)),
+    Cy = cp1y + (t * (p1y - cp1y));
 
   // The second step is very much like the first. In the first we connected the
   // four points with lines and then found 3 new points on them. In this step
   // we'll connect those 3 points with lines find 2 new points on them. I'll
   // call these two new points D and E.
   var Dx = Ax + (t * (Bx - Ax)),
-      Dy = Ay + (t * (By - Ay)),
-      Ex = Bx + (t * (Cx - Bx)),
-      Ey = By + (t * (Cy - By));
+    Dy = Ay + (t * (By - Ay)),
+    Ex = Bx + (t * (Cx - Bx)),
+    Ey = By + (t * (Cy - By));
   // Finally, we can connect these last two points with another line, and find
   // the last point on it which will give us the point on the bezier curve for
   // that t. I'll call this point P.
   var Px = Dx + (t * (Ex - Dx)),
-      Py = Dy + (t * (Ey - Dy));
+    Py = Dy + (t * (Ey - Dy));
 
 
   return {
@@ -102,7 +102,7 @@ var Curve = function (vpX, vpY, vpZ, epX, epY, epZ, brushCount, maxBrushAlpha, f
   this.maxBrushAlpha = maxBrushAlpha || 1;
 
   this.points = [
-    new CurvePoint (this.vanishingPoint.x, this.vanishingPoint.y, this.vanishingPoint.z, 0)
+    new CurvePoint(this.vanishingPoint.x, this.vanishingPoint.y, this.vanishingPoint.z, 0)
   ];
   // add in-between points
   for (var i = 0; i < CURVE_POINTS - 1; i++) {
@@ -119,10 +119,10 @@ var Curve = function (vpX, vpY, vpZ, epX, epY, epZ, brushCount, maxBrushAlpha, f
     y += yJitter * (y - this.points[i].y);
     var z = mod * (this.endPoint.z - this.vanishingPoint.z) + this.vanishingPoint.z;
 
-    this.points.push(new CurvePoint (x, y, z, ((Math.random() * .33 + .33) * (x - this.points[i].x))));
+    this.points.push(new CurvePoint(x, y, z, ((Math.random() * .33 + .33) * (x - this.points[i].x))));
   }
   // add last point
-  this.points.push(new CurvePoint (this.endPoint.x, this.endPoint.y, this.endPoint.z, 0));
+  this.points.push(new CurvePoint(this.endPoint.x, this.endPoint.y, this.endPoint.z, 0));
 
 
   // create brushes
@@ -144,7 +144,7 @@ Curve.prototype = {
     // mostly just for debug
     ctx.lineWidth = 2;
     // cp lines
-    ctx.setLineDash([2,2]);
+    ctx.setLineDash([2, 2]);
     ctx.strokeStyle = "#f99";
     for (var i = 1, len = this.points.length; i < len; i++) {
       ctx.beginPath();
@@ -172,7 +172,7 @@ Curve.prototype = {
     ctx.strokeStyle = "#c00";
     ctx.moveTo(bezierPoints[0].x, bezierPoints[0].y);
     for (var i = 1, len = bezierPoints.length; i < len; i += 3) {
-      ctx.bezierCurveTo(bezierPoints[i].x, bezierPoints[i].y, bezierPoints[i+1].x, bezierPoints[i+1].y, bezierPoints[i+2].x, bezierPoints[i+2].y);
+      ctx.bezierCurveTo(bezierPoints[i].x, bezierPoints[i].y, bezierPoints[i + 1].x, bezierPoints[i + 1].y, bezierPoints[i + 2].x, bezierPoints[i + 2].y);
     }
     ctx.stroke();
   },
@@ -201,7 +201,7 @@ Curve.prototype = {
       var nextPoint = this.points[i];
       var nextPointCps = nextPoint.getCps();
       var t = (p - lastPoint.z) / (nextPoint.z - lastPoint.z);
-      return deCasteljau (lastPoint.x, lastPoint.y, lastPointCps[1].x, lastPointCps[1].y, nextPointCps[0].x, nextPointCps[0].y, nextPoint.x, nextPoint.y, t);
+      return deCasteljau(lastPoint.x, lastPoint.y, lastPointCps[1].x, lastPointCps[1].y, nextPointCps[0].x, nextPointCps[0].y, nextPoint.x, nextPoint.y, t);
     }
   },
   update: function () {
@@ -378,12 +378,12 @@ var NorthernLights = function (parentElement, width, height, curves) {
   this.canvas.width = this.width;
   let clientHeight = window.innerHeight;
   console.log(clientHeight);
-  this.canvas.height = clientHeight*0.8;
+  this.canvas.height = clientHeight * 0.8;
   this.ctx = this.canvas.getContext('2d');
   this.ctx.globalCompositeOperation = "color-dodge";
 
   // make a new random curve if one wasn't passed
-  this.curves = curves || [new Curve (this.width * .1, this.height * .9, this.width * .9, this.height * .4)];
+  this.curves = curves || [new Curve(this.width * .1, this.height * .9, this.width * .9, this.height * .4)];
 
   if (DEBUG) {
     this.fpsDisplay = document.createElement('span');
@@ -405,9 +405,9 @@ NorthernLights.prototype = {
     this.running = true;
     var _this = this;
     var lastTime = new Date().getTime();
-    (function anim () {
+    (function anim() {
       // clear current
-      _this.ctx.clearRect(0,0,_this.width,_this.height);
+      _this.ctx.clearRect(0, 0, _this.width, _this.height);
       for (var i = 0, len = _this.curves.length; i < len; i++) {
         // update positions
         _this.curves[i].update();
@@ -439,49 +439,78 @@ NorthernLights.prototype = {
     return this.curves;
   }
 }
-function generateAurora(){
-    console.log("change");
-    let green = wind.value;
-    let red = ox.value*5;
-    let pink = n2.value;
-    if(red!=0){
-      glow.style.background =
-      "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
-      green +
-      "%,rgba(232, 52, 49,0.5) "+red+"%,rgba(0, 212, 255, 0) 100%)";
-    }else if(pink!=0){
-      let rgbval = (161, 72, 66);
-      glow.style.background =
-        "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
-        green +
-        "%,rgba(0, 212, 255, 0) 100%)";
-    }else if(green<2){
-      glow.style.background =
-        "radial-gradient(closest-side,rgba(221, 250, 114, 0.1) 0%,rgba(128, 250, 57, 0.1)" +
-        green +
-        "%,rgba(0, 212, 255, 0) 100%)";
-    }else{
-      glow.style.background =
-        "radial-gradient(closest-side,rgba(221, 250, 114, 0.8) 0%,rgba(128, 250, 57, 0.8)" +
-        green +
-        "%,rgba(0, 212, 255, 0) 100%)";
-    }
+function generateAurora() {
+  // console.log("change");
+  var green = wind.value;
+  var red = ox.value;
+  var pink = n2.value;
+  // console.log(green, " green", red, " red", pink, " pink")
+  var valSet = [];
+  if (red > 0 && pink == 0) {
+    valSet = [green, red, 0, "255, 102, 148"];
+    console.log(valSet[3]);
+    return valSet;
+  } else if (pink > 0 && red == 0) {
+    valSet = [green, 0, pink];
+    return valSet;
+  } else if (pink > 0 && red > 0) {
+    valSet = [green, red, pink, "128, 43, 43"];
+    return valSet;
+  } else if (green < 2) {
+    valSet = [green / 10, 0, 0, "70, 227, 39"];
+    return valSet;
+  } else {
+    valSet = [green, 0, 0, "70, 227, 39"];
+    return valSet;
+  }
 };
 var gradCanvas = document.createElement('canvas');
 var gradCtx = gradCanvas.getContext('2d');
 var grad = gradCtx.createLinearGradient(window.innerWidth * .5, window.innerHeight, window.innerWidth * .35, 0);
+// print pecentage of parameter
+n2Val.innerHTML = n2.value;
+oxVal.innerHTML = ox.value;
+windVal.innerHTML = wind.value;
+// print pecentage of parameter
+n2.addEventListener("input", () => {
+  // console.log("nitrogen val is: " + n2.value);
+  n2Val.innerHTML = n2.value;
+  let arr = generateAurora();
+  // console.log(arr);
+  let colour = "rgb(" + arr[3] + ")";
+  grad2.addColorStop(.35, colour);
+});
+ox.addEventListener("input", () => {
+  // console.log("oxygen val is: " + ox.value);
+  oxVal.innerHTML = ox.value;
+  let arr = generateAurora();
+  console.log("rgba(" + arr[3] + "," + arr[1] / 20 + ")");
+  let colour = "rgba(" + arr[3] + "," + arr[1] / 20 + ")";
+  grad2.addColorStop(.7, colour);
+  grad.addColorStop(.4, colour);
+});
+wind.addEventListener("input", () => {
+  // console.log("wind val is: " + wind.value);
+  windVal.innerHTML = wind.value;
+  let arr = generateAurora();
+  let colour = "rgba(" + arr[3] + "," + arr[1] / 20 + ")";
+  grad.addColorStop(.4, colour);
+});
+date.addEventListener("input", () => {
+  console.log("user choose date: " + date.value);
+});
 grad.addColorStop(.4, "rgb(50, 130, 80)");
 grad.addColorStop(.6, "rgba(100, 100, 120, .5)");
 var grad2 = gradCtx.createLinearGradient(window.innerWidth * .5, window.innerHeight * .5, window.innerWidth * .3, 0);
-grad2.addColorStop(.35, "rgb(50, 130, 140)");
+grad2.addColorStop(.35, "rgb(70, 227, 39)");
 grad2.addColorStop(.7, "rgba(50, 70, 100,.7)");
 
 var curves = [
-  new Curve (window.innerWidth * .17, window.innerHeight * .94, .01, window.innerWidth * .8, window.innerHeight * .8, .8, BRUSH_COUNT * .3, .4, "rgb(60, 150, 120)"),
-  new Curve (window.innerWidth * .1, window.innerHeight * .9, .05, window.innerWidth * .8, window.innerHeight * .4, 1, null, .8, grad),
-  new Curve (window.innerWidth * .25, window.innerHeight * .65, .33, window.innerWidth * .55, 0, 1.1, BRUSH_COUNT * .6, 1, grad2)
+  new Curve(window.innerWidth * .17, window.innerHeight * .94, .01, window.innerWidth * .8, window.innerHeight * .8, .8, BRUSH_COUNT * .3, .4, "rgb(60, 150, 120)"),
+  new Curve(window.innerWidth * .1, window.innerHeight * .9, .05, window.innerWidth * .8, window.innerHeight * .4, 1, null, .8, grad),
+  new Curve(window.innerWidth * .25, window.innerHeight * .65, .33, window.innerWidth * .55, 0, 1.1, BRUSH_COUNT * .6, 1, grad2)
 ]
-var nl1 = new NorthernLights (document.body, null, null, curves);
+var nl1 = new NorthernLights(document.body, null, null, curves);
 
 // document.body.addEventListener('mousemove', function (e) {
 //   mouseXPercentage = e.clientX / window.innerWidth;

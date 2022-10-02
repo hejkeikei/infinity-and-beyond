@@ -70,6 +70,7 @@ h1 {
     left: -33px;
     /* right: 1000px; */
     transform: translate(-2%, -40%);
+    cursor: crosshair;
 }
 
 path,
@@ -118,6 +119,9 @@ button:hover {
     text-decoration: none;
 }
 
+.datechoice {
+    margin: .5rem .5rem .5rem 0;
+}
 
 @media all and (max-width:3200px) {
     svg {

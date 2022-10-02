@@ -15,7 +15,7 @@ main {
     color: white;
     /* background-image: url(images/mountain.svg); */
     /* background-color: rgb(63, 60, 91); */
-    background-image: linear-gradient(to top, #434343 0%, black 100%);
+    /* background-image: linear-gradient(to top, #434343 0%, black 100%); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -32,6 +32,12 @@ body {
     height: 100vh;
     width: auto;
     background-position: bottom;
+}
+
+aside {
+    position: fixed;
+    bottom: 0;
+    right: 2vw;
 }
 
 #infoBox {

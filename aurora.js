@@ -496,9 +496,7 @@ wind.addEventListener("input", () => {
   let colour = "rgba(" + arr[3] + "," + arr[1] / 20 + ")";
   grad.addColorStop(.4, colour);
 });
-date.addEventListener("input", () => {
-  console.log("user choose date: " + date.value);
-});
+
 grad.addColorStop(.4, "rgb(50, 130, 80)");
 grad.addColorStop(.6, "rgba(100, 100, 120, .5)");
 var grad2 = gradCtx.createLinearGradient(window.innerWidth * .5, window.innerHeight * .5, window.innerWidth * .3, 0);

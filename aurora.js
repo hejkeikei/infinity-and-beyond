@@ -435,7 +435,34 @@ NorthernLights.prototype = {
     return this.curves;
   }
 }
-
+function generateAurora(){
+    console.log("change");
+    let green = wind.value;
+    let red = ox.value*5;
+    let pink = n2.value;
+    if(red!=0){
+      glow.style.background =
+      "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+      green +
+      "%,rgba(232, 52, 49,0.5) "+red+"%,rgba(0, 212, 255, 0) 100%)";
+    }else if(pink!=0){
+      let rgbval = (161, 72, 66);
+      glow.style.background =
+        "radial-gradient(closest-side,rgba(221, 250, 114, 1) 0%,rgba(128, 250, 57, 1)" +
+        green +
+        "%,rgba(0, 212, 255, 0) 100%)";
+    }else if(green<2){
+      glow.style.background =
+        "radial-gradient(closest-side,rgba(221, 250, 114, 0.1) 0%,rgba(128, 250, 57, 0.1)" +
+        green +
+        "%,rgba(0, 212, 255, 0) 100%)";
+    }else{
+      glow.style.background =
+        "radial-gradient(closest-side,rgba(221, 250, 114, 0.8) 0%,rgba(128, 250, 57, 0.8)" +
+        green +
+        "%,rgba(0, 212, 255, 0) 100%)";
+    }
+};
 var gradCanvas = document.createElement('canvas');
 var gradCtx = gradCanvas.getContext('2d');
 var grad = gradCtx.createLinearGradient(window.innerWidth * .5, window.innerHeight, window.innerWidth * .35, 0);

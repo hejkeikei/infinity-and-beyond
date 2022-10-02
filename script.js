@@ -76,10 +76,6 @@ for (let i = 0; i < 7; i++) {
   calendarBtn[i].innerHTML = dd + '/' + mm + '/' + yyyy; // add the text
 }
 
-
-
-
-
 // choose location
 function pathGen() {
   var canv = document.querySelector("canvas");

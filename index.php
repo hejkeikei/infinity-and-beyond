@@ -11,16 +11,14 @@
 
 <body>
   <aside>
-    <a href="">
-      <img src="" alt="">
+    <a href="https://www.nasa.gov/content/goddard/parker-solar-probe" target="_blank">
+      <img src="images/parker.png" alt="parker solar probe" width="200" id="parker">
     </a>
-    <p>TAAAAAAAAAAAAAA</p>
+    <p>Learn more about Parker probe↑</p>
   </aside>
     <main>
-
         <div id="mountain">
             <!-- Location -->
-
             <div id="mapBox" w3-include-html="map.html">
                 <!-- <div w3-include-html="map.html"></div> -->
             </div>

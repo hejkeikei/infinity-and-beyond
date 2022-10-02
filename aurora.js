@@ -42,6 +42,7 @@ var mouseYPercentage = .5;
  *
  * see http://stackoverflow.com/questions/14174252/how-to-find-out-y-coordinate-of-specific-point-in-bezier-curve-in-canvas
  */
+
 function deCasteljau (p0x, p0y, cp0x, cp0y, cp1x, cp1y, p1x, p1y, t) {
   // In the first step of the algorithm we draw a line connecting p0 and cp0,
   // another line connecting cp0 and cp1, and another still connecting cp1 and p1.
@@ -53,6 +54,7 @@ function deCasteljau (p0x, p0y, cp0x, cp0y, cp1x, cp1y, p1x, p1y, t) {
       By = cp0y + (t * (cp1y - cp0y)),
       Cx = cp1x + (t * (p1x - cp1x)),
       Cy = cp1y + (t * (p1y - cp1y));
+
   // The second step is very much like the first. In the first we connected the
   // four points with lines and then found 3 new points on them. In this step
   // we'll connect those 3 points with lines find 2 new points on them. I'll
@@ -66,6 +68,7 @@ function deCasteljau (p0x, p0y, cp0x, cp0y, cp1x, cp1y, p1x, p1y, t) {
   // that t. I'll call this point P.
   var Px = Dx + (t * (Ex - Dx)),
       Py = Dy + (t * (Ey - Dy));
+
 
   return {
     x: Px,
@@ -120,6 +123,7 @@ var Curve = function (vpX, vpY, vpZ, epX, epY, epZ, brushCount, maxBrushAlpha, f
   }
   // add last point
   this.points.push(new CurvePoint (this.endPoint.x, this.endPoint.y, this.endPoint.z, 0));
+
 
   // create brushes
   this.brushes = [];

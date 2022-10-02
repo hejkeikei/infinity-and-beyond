@@ -372,7 +372,9 @@ var NorthernLights = function (parentElement, width, height, curves) {
   this.height = height || window.innerHeight;
   this.canvas = document.createElement('canvas');
   this.canvas.width = this.width;
-  this.canvas.height = 750;
+  let clientHeight = window.innerHeight;
+  console.log(clientHeight);
+  this.canvas.height = clientHeight*0.8;
   this.ctx = this.canvas.getContext('2d');
   this.ctx.globalCompositeOperation = "color-dodge";
 

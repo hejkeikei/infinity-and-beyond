@@ -53,28 +53,6 @@ wind.value = 600;
 setTimeout(pathGen, 5000);
 const calendarBtn = document.querySelectorAll('.datechoice'); // creates a <h1> element
 
-var today = new Date();
-const yyyy = today.getFullYear();
-var ctoday = new Date();
-let cmm = ctoday.setMonth(ctoday.getMonth());
-ctoday.setDate(0);
-let cdd = ctoday.getDate(0);
-today.toDateString();
-for (let i = 0; i < 7; i++) {
-  let dd = today.getDate();
-  let mm = today.getMonth() + 1; // Months start at 0!
-
-  dd = dd - i;
-  if (dd < 0) {
-    dd = cdd + dd;
-    mm = mm - 1;
-  } else if (dd == 0) {
-    dd = cdd;
-    mm = mm - 1;
-  }
-  console.log('dd=' + dd);
-  calendarBtn[i].innerHTML = dd + '/' + mm + '/' + yyyy; // add the text
-}
 
 // choose location
 function pathGen() {

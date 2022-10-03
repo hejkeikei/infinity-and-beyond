@@ -57,8 +57,7 @@ if (!$connection) {
                     $sql = mysqli_query($connection, $query);
                     // showing <a>tags for 7 day
                     while ($data = mysqli_fetch_array($sql)) {
-                        $newDate = substr($data['date'], 0, strlen($string) - 5);
-                        echo '<a href="index_php.php" id="btnspeed' . $data['speed'] . '" class="datechoice">' . $newDate . '</a>';
+                        echo '<a href="index.php" id="btnspeed' . $data['speed'] . '" class="datechoice">' . $data['date'] . '</a>';
                         // Opacity calculator
                         $figure = 0;
                         if ($data['speed'] < 500) {
@@ -72,18 +71,15 @@ if (!$connection) {
     <script>
         " .
                             "btnspeed" . $data['speed'] . ".addEventListener('click',(e)=>{
-            e.preventDefault();
-            var canv = document.querySelector('canvas');
-            canv.style.opacity = " . $figure . ";
+        e.preventDefault();
+        var canv = document.querySelector('canvas');
+        canv.style.opacity = " . $figure . ";
         })"
                             . "
     </script>
     ";
                     }
                     ?>
-
-
-
 
                     <!-- <label for="date"></label> -->
 

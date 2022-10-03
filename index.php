@@ -51,39 +51,35 @@ if (!$connection) {
 
 
                     <!-- 7 Days history including today -->
-                    <?php
-                    //Getting Solar wind data from DB
-                    $query = "SELECT date, speed FROM electron_fluence_forecast ORDER BY te DESC LIMIT 7";
-                    $sql = mysqli_query($connection, $query);
-                    // showing <a>tags for 7 day
-                    while ($data = mysqli_fetch_array($sql)) {
-                        $newDate = substr($data['date'], 0, strlen($string) - 5);
-                        echo '<a href="index_php.php" id="btnspeed' . $data['speed'] . '" class="datechoice">' . $newDate . '</a>';
-                        // Opacity calculator
-                        $figure = 0;
-                        if ($data['speed'] < 500) {
-                            $figure = 0;
-                        } elseif ($data['speed'] > 500) {
-                            $figure = $data['speed'] / 1000;
-                        } else {
-                            $figure = 0;
-                        }
-                        echo "
+<?php
+//Getting Solar wind data from DB
+$query = "SELECT date, speed FROM electron_fluence_forecast ORDER BY date DESC LIMIT 7";
+$sql = mysqli_query($connection, $query);
+// showing <a>tags for 7 day
+while ($data = mysqli_fetch_array($sql)) {
+    echo '<a href="index.php" id="btnspeed'.$data['speed'].'" class="datechoice">'.$data['date'].'</a>';
+    // Opacity calculator
+    $figure = 0;
+    if ($data['speed'] < 500) {
+        $figure = 0;
+    } elseif ($data['speed'] > 500) {
+        $figure = $data['speed'] / 1000;
+    } else {
+        $figure = 0;
+    }
+    echo "
     <script>
-        " .
-                            "btnspeed" . $data['speed'] . ".addEventListener('click',(e)=>{
-            e.preventDefault();
-            var canv = document.querySelector('canvas');
-            canv.style.opacity = " . $figure . ";
+        ".
+        "btnspeed".$data['speed'].".addEventListener('click',(e)=>{
+        e.preventDefault();
+        var canv = document.querySelector('canvas');
+        canv.style.opacity = ".$figure.";
         })"
-                            . "
+        ."
     </script>
     ";
-                    }
-                    ?>
-
-
-
+    }
+?>
 
                     <!-- <label for="date"></label> -->
 

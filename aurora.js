@@ -448,15 +448,15 @@ function generateAurora() {
   var valSet = [];
   if (red > 0 && pink == 0) {
     valSet = [green, red, 0, "255, 102, 148"];
-    console.log(valSet[3]);
+    // console.log(valSet[3]);
     return valSet;
   } else if (pink > 0 && red == 0) {
-    valSet = [green, 0, pink];
+    valSet = [green, 0, pink, "174, 51, 245"];
     return valSet;
   } else if (pink > 0 && red > 0) {
     valSet = [green, red, pink, "128, 43, 43"];
     return valSet;
-  } else if (green < 2) {
+  } else if (green < 200) {
     valSet = [green / 10, 0, 0, "70, 227, 39"];
     return valSet;
   } else {
@@ -477,24 +477,29 @@ n2.addEventListener("input", () => {
   n2Val.innerHTML = n2.value;
   let arr = generateAurora();
   // console.log(arr);
-  let colour = "rgb(" + arr[3] + ")";
+  let colour = "rgba(" + arr[3] + "," + arr[2] / 20 + ")";
   grad2.addColorStop(.35, colour);
 });
 ox.addEventListener("input", () => {
   // console.log("oxygen val is: " + ox.value);
   oxVal.innerHTML = ox.value;
   let arr = generateAurora();
-  console.log("rgba(" + arr[3] + "," + arr[1] / 20 + ")");
+  // console.log("rgba(" + arr[3] + "," + arr[1] / 20 + ")");
   let colour = "rgba(" + arr[3] + "," + arr[1] / 20 + ")";
   grad2.addColorStop(.7, colour);
   grad.addColorStop(.4, colour);
 });
 wind.addEventListener("input", () => {
+  let canv = document.querySelector("canvas");
   // console.log("wind val is: " + wind.value);
   windVal.innerHTML = wind.value;
   let arr = generateAurora();
-  let colour = "rgba(" + arr[3] + "," + arr[1] / 20 + ")";
+  let colour = "rgba(" + arr[3] + "," + arr[0] / 400 + ")";
+  // console.log(colour);
   grad.addColorStop(.4, colour);
+  // grad2.addColorStop(.7, colour);
+  canv.style.opacity = arr[0] / 400;
+
 });
 
 grad.addColorStop(.4, "rgb(50, 130, 80)");

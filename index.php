@@ -1,3 +1,4 @@
+
 <?php
 // DB_Connection
 $server = "localhost";
@@ -13,16 +14,21 @@ if(!$connection){
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" >
     <title>Infinity and Beyond</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="aurora.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="aurora.css">
 </head>
 
 <body>
+  <aside>
+    <a href="https://www.nasa.gov/content/goddard/parker-solar-probe" target="_blank">
+      <img src="images/parker.png" alt="parker solar probe" width="200" id="parker">
+    </a>
+    <p>Learn more about Parker probe↑</p>
+  </aside>
     <main>
-
         <div id="mountain">
             <!-- Location -->
 
@@ -43,7 +49,8 @@ if(!$connection){
 
                 <p> OR </p>
                 <form action="#" method="GET">
-<ul id="dateSelect">
+
+
 <!-- 7 Days history including today -->
 <?php
 //Getting Solar wind data from DB
@@ -75,7 +82,9 @@ while($data = mysqli_fetch_array($sql)){
     ";
 }
 ?>
-</ul>
+
+
+
 
                     <!-- <label for="date"></label> -->
 
@@ -83,23 +92,28 @@ while($data = mysqli_fetch_array($sql)){
                         <div>
                             <label for="wind">Solor wind</label>
                             <p class="inlineBlock">
-                                <input type="range" id="wind" name="wind" min="0" max="100" value="0" /><span id="windVal"></span>%</p>
+                                <input type="range" id="wind" name="wind" min="150" max="600" value="0" step="10"><span id="windVal"></span></p>
+
                         </div>
 
                         <div>
                             <label for="n2">N<sub>2</sub><sup>&#43;</sup></label>
                             <p class="inlineBlock">
-                                <input type="range" id="n2" name="n2" min="0" max="78" value="0" /><span id="n2Val"></span>%</p>
+
+                                <input type="range" id="n2" name="n2" min="0" max="78" value="0"><span id="n2Val"></span>%</p>
+
                         </div>
 
                         <div>
                             <label for="ox">O</label>
                             <p class="inlineBlock">
-                                <input type="range" id="ox" name="ox" min="0" max="21" value="0" /><span id="oxVal"></span>%</p>
+                                <input type="range" id="ox" name="ox" min="0" max="21" value="0"><span id="oxVal"></span>%</p>
                         </div>
                     </div>
                 </form>
             </div>
+          </div>
+
     </main>
     <script src="script.js"></script>
     <script src="aurora.js"></script>

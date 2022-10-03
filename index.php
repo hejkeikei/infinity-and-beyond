@@ -53,7 +53,7 @@ if (!$connection) {
                     <!-- 7 Days history including today -->
                     <?php
                     //Getting Solar wind data from DB
-                    $query = "SELECT date, speed FROM electron_fluence_forecast ORDER BY te DESC LIMIT 7";
+                    $query = "SELECT date, speed FROM electron_fluence_forecast ORDER BY date DESC LIMIT 7";
                     $sql = mysqli_query($connection, $query);
                     // showing <a>tags for 7 day
                     while ($data = mysqli_fetch_array($sql)) {
